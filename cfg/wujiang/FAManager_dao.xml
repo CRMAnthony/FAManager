@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 此配置文件用于加载系统业务类（service）和持久层访问类（Dao） -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+	
+	<!-- 通行线路-->
+	<bean id="passlineDao" class="com.jszt.dao.Impl.DimPassLineDaoImpl"/>
+	
+	<!-- 禁行线路 -->
+	<bean id="forbidDao" class="com.jszt.dao.Impl.DimForbidLineDaoImpl"/>
+	
+	<!-- 公共接口部分-->
+	<bean id="commonDao" class="com.jszt.dao.Impl.CommonDaoImpl"/>
+	
+	<!-- 通行时段 -->
+	<bean id="dimPassLimitDao" class="com.jszt.dao.Impl.DimPassLimitDaoImpl"/>
+	
+	<!-- 零时通行证 -->
+	<bean id="dimTempPassCardDao" class="com.jszt.dao.Impl.DimTempPassCardDaoImpl"/>
+	
+	<!-- 长期通行证 -->
+	<bean id="dimLongPassCardDao" class="com.jszt.dao.Impl.DimLongPassCardDaoImpl"/>
+	
+	<!-- 黄标车 -->
+	<bean id="unstandardVehicleDao" class="com.jszt.dao.Impl.DimUnstandardVehicleDaoImpl"/>
+	
+	<!-- 外地车首次违法 -->
+	<bean id="dimViolationFirstDao" class="com.jszt.dao.Impl.DimViolationFirstDaoImpl"/>
+	
+	<!-- 禁行区域 -->	
+	<bean id="dimForbidAreaDao" class="com.jszt.dao.Impl.DimForbidAreaDaoImpl"/>
+
+	<!-- 违法审核无效 -->
+	<bean id="dimViolationInvalidDao" class="com.jszt.dao.Impl.DimViolationInvalidDaoImpl"/>
+	
+	<!--过车记录  -->
+	<bean id="dimViolationPassRecordDao" class="com.jszt.dao.Impl.DimViolationPassRecordDaoImpl"/>
+	
+	<!--过车记录历史表  -->
+	<bean id="dimViolationPassRecordHisDao" class="com.jszt.dao.Impl.DimViolationPassRecordHisDaoImpl"/>
+	
+	<!--违法有效  -->
+	<bean id="dimViolationValidDao" class="com.jszt.dao.Impl.DimViolationValidDaoImpl"/>
+	
+	<!-- 违法未通知次数数 -->
+	<bean id="DimViolationStatisticDao" class="com.jszt.dao.Impl.DimViolationStatisticDaoImpl"></bean>
+	
+	<!-- 特殊车辆信息数据 -->
+	<bean id="specialVehicleDao" class="com.jszt.dao.Impl.SpecialVehicleDaoImpl"/>
+	
+	<!-- 卡口 -->
+	<bean id="dimSurveillanceCameraDao" class="com.jszt.dao.Impl.DimSurveillanceCameraDaoImpl" />
+	
+	<!-- 渣土车 -->
+	<bean id="constructionVehicleDao" class="com.jszt.dao.Impl.DimConstructionVehicleDaoImpl"/>
+	
+	<!-- 渣土车特殊通行證 -->
+	<bean id="constructionSpeCardDao" class="com.jszt.dao.Impl.DimConstructionSpeCardDaoImpl"/>
+	
+	<!-- 通行证用户信息绑定数据 -->
+	<bean id="dimCardUserInfoDaoImpl" class="com.jszt.dao.Impl.DimCardUserInfoDaoImpl"/>
+	
+	<bean id="dimPassLimitDateDao" class="com.jszt.dao.Impl.DimPassLimitDateDaoImpl"/>
+</beans>

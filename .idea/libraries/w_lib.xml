@@ -1,0 +1,29 @@
+<component name="libraryTable">
+  <library name="w-lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/wj-lib/w-lib/tomcat-jdbc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/wj-lib/w-lib/catalina-ha.jar!/" />
+      <root url="jar://$PROJECT_DIR$/wj-lib/w-lib/tomcat-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/wj-lib/w-lib/jasper-el.jar!/" />
+      <root url="jar://$PROJECT_DIR$/wj-lib/w-lib/websocket-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/wj-lib/w-lib/ecj-4.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/wj-lib/w-lib/tomcat7-websocket.jar!/" />
+      <root url="jar://$PROJECT_DIR$/wj-lib/w-lib/tomcat-i18n-es.jar!/" />
+      <root url="jar://$PROJECT_DIR$/wj-lib/w-lib/jsp-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/wj-lib/w-lib/tomcat-i18n-fr.jar!/" />
+      <root url="jar://$PROJECT_DIR$/wj-lib/w-lib/catalina-ant.jar!/" />
+      <root url="jar://$PROJECT_DIR$/wj-lib/w-lib/jasper.jar!/" />
+      <root url="jar://$PROJECT_DIR$/wj-lib/w-lib/catalina-tribes.jar!/" />
+      <root url="jar://$PROJECT_DIR$/wj-lib/w-lib/catalina.jar!/" />
+      <root url="jar://$PROJECT_DIR$/wj-lib/w-lib/tomcat-dbcp.jar!/" />
+      <root url="jar://$PROJECT_DIR$/wj-lib/w-lib/servlet-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/wj-lib/w-lib/tomcat-coyote.jar!/" />
+      <root url="jar://$PROJECT_DIR$/wj-lib/w-lib/tomcat-util.jar!/" />
+      <root url="jar://$PROJECT_DIR$/wj-lib/w-lib/annotations-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/wj-lib/w-lib/tomcat-i18n-ja.jar!/" />
+      <root url="jar://$PROJECT_DIR$/wj-lib/w-lib/el-api.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

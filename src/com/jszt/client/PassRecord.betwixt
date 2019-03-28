@@ -1,0 +1,10 @@
+<info primitiveTypes="element">
+<element name="record">
+<element name="device_id" property="deviceId"/>
+<element name="device_type" property="deviceType"/>
+<element name="url_1" property="url1"/>
+<element name="url_2" property="url2"/>
+<element name="url_3" property="url3"/>
+<addDefaults/>
+</element>
+</info>

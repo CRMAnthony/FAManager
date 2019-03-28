@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="FAManager-compile" name="FAManager-Compile">
+	<!-- 基础配置声明 -->	
+	<property name="javac.source" value="1.7" />
+	<property name="main.path" value="./src" />
+	<property name="classes.path" value="./classes" />
+	
+	<!-- 引用路径 -->
+	<path id="build.path">
+		<fileset dir="../library">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+	
+	<!-- 清理目录 -->
+	<target name="clean">
+		<delete dir="${classes.path}" failonerror="false" />
+	</target>
+	
+	<!-- 初始化  -->
+	<target name="init" depends="clean">
+		<mkdir dir="${classes.path}" />
+	</target>
+	
+	<!-- 主构建 -->
+	<target name="compile.main" depends="init">
+		<!-- 编译  -->
+		<javac source="${javac.source}"
+		           srcdir="${main.path}"
+		           destdir="${classes.path}"
+		           debug="on"
+		           deprecation="true"
+		           encoding="UTF-8"
+               fork="true"
+               memoryMaximumSize="512M">
+			<classpath refid="build.path" />
+		</javac>
+		
+		<!-- 配置文件拷贝  -->
+		<copy todir="${classes.path}">
+			<fileset dir="${main.path}" excludes="**/*.java  |  **/*.java.bak" />
+		</copy>
+	</target>
+	
+	<!-- 构建入口 -->
+	<target name="FAManager-compile" depends="compile.main" />
+</project>

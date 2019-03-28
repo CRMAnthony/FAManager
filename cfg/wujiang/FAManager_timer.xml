@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<bean id="MethodTimerFactory" class="com.jsits.commons.util.MethodTimerFactory" init-method="init" lazy-init="false">
+		<property name="timerList">
+			<list>
+				<!--beanId,method,crontab,delay(S) -->
+				<value>vioPassRecordService,updateValidCard,0 59 23 * * ?,0</value>
+				<value>vioPassRecordService,syncValidCard,0 0 0 * * ?,2</value>
+				<!-- 过滤临时通行证中的过车记录 -->
+				<value>vioPassRecordService,delViolationTempPassCard,0 0 1 * * ?,0</value>
+				<!-- 统计违法次数 -->
+				<value>illegalRecordService,statisticsIllegalCount,0 0 9 * * ?,2</value>
+				
+				<!--删除违法过车记录中无效信息 和删除10天，60天以前的数据 -->
+				<value>illegalRecordService,deleteUnqualifiedIllegalRecord,0 0 3 * * ?,2</value>
+				
+				<!--删除短信统计前30天无效信息  -->
+				<value>illegalRecordService,deleteNoticeCount,0 0 5 * * ?,2</value>
+
+				<!--删除昨日零点之前的记录 -->
+				<value>passCardService,deleteExpirePassCard,0 0 5 * * ?,2</value>
+			</list>
+		</property>
+	</bean>
+</beans>

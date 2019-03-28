@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 此配置文件用于加载系统业务类（service）和持久层访问类（Dao） -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<!-- 通行线路 -->
+	<bean id="passLineService" class="com.jszt.service.impl.PassLineServiceImpl">
+	</bean>
+
+	<!-- 禁行线路 -->
+	<bean id="forbidLineService" class="com.jszt.service.impl.ForbidLineServiceImpl">
+	</bean>
+	
+	<!-- 通行额度配置 -->
+	<bean id="passLimitService" class="com.jszt.service.impl.PassLimitServiceImpl">
+	</bean>
+	
+	<!-- 通行时段配置 -->
+	<bean id="passTimeConfigService" class="com.jszt.service.impl.PassTimeConfigServiceImpl" />
+
+    <!-- 黄标车 -->
+	<bean id="unstandardVehicleService" class="com.jszt.service.impl.UnstandardVehicleServiceImpl"/>
+   
+	<!-- 通行证 -->
+	<bean id="passCardService" class="com.jszt.service.impl.PassCardServiceImpl" />
+	
+	<!-- 违法审核 -->
+	<bean id="illegalRecordService" class="com.jszt.service.impl.IllegalRecordServiceImpl" />
+	
+	<!-- 禁行区域 -->
+	<bean id="forbidAreaService" class="com.jszt.service.impl.ForbidAreaServiceImpl"/>
+	
+	<!-- 违法过车记录 -->
+	<!-- <bean id="vioPassRecordService" class="com.jszt.service.impl.VioPassRecordServiceImpl" init-method="initValidCard"/> -->
+	<bean id="vioPassRecordService" class="com.jszt.service.impl.VioPassRecordServiceImpl" init-method="startInitValidCard"/>
+	
+	<!-- 违法过车记录服务端 -->
+	<!-- <bean id="passRecordServer" class="com.jszt.client.PassRecordServer" init-method="createServer"/> -->
+	<bean id="passRecordServer" class="com.jszt.client.PassRecordServer" init-method="startCreateServer"/>
+	
+	<!-- 特殊车辆 -->
+	<bean id ="specialVehiclesService" class= "com.jszt.service.impl.SpecialVehiclesServiceImpl"/>
+	
+	<!-- 渣土车 -->
+	<bean id="constructionVehicleService" class="com.jszt.service.impl.ConstructionVehicleServiceImpl"/>
+	
+	<!-- 渣土车特殊通行證 -->
+	<bean id="constructionSpeCardService" class="com.jszt.service.impl.ConstructionSpeCardServiceImpl"/>
+</beans>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<!-- 注解装配服务 -->
+	<bean class="com.jsits.commons.ioc.AnnoAssembler">
+		<property name="scanPackages">
+			<list>
+				<value>com.jszt</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- JDBC操作模板 -->
+	<bean id="jdbcTemplate" class="com.jsits.commons.db.JdbcTemplate">
+		<!-- 通过构造函数方式注入 -->
+		<constructor-arg ref="connectionFactory" />
+	</bean>
+
+	<!-- 自动装配服务 -->
+	<bean class="com.jsits.commons.ioc.NameAwareBean">
+		<property name="name" value="JdbcTemplate" />
+		<property name="sourceReference" value="jdbcTemplate" />
+	</bean>
+
+	<bean id="ServiceUtil" class="com.jsits.commons.util.ServiceUtil" />
+	
+	<!-- 配置文件引入Spring  -->
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="order" value="2" />
+    	<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="locations" value="file:${user.dir}/../conf/serverCfg/db.properties"/>
+	</bean>
+	
+	<!-- sql文件配置 -->
+	<bean id="faManagerConfigureService" class="com.jsits.commons.service.ConfigureServiceImpl">
+		<property name="resource">
+			<list>
+				<value>file:${user.dir}/../conf/serverCfg/FAManager_sql.properties</value>
+				<value>file:${user.dir}/../conf/serverCfg/FAManager_config.properties</value>
+				<value>file:${user.dir}/../conf/serverCfg/sms.properties</value>
+			</list>
+		</property>
+	</bean>
+
+    <!--系统初始化  -->	
+	<bean id="sysInit"  class="com.jszt.service.common.impl.SystemInitServiceSpi"></bean>
+	
+	<!-- 公共服务 -->
+	<bean id="commonService" class="com.jszt.service.impl.CommonServiceImpl"></bean>
+	
+	<!-- 访问图片服务器 -->
+	<bean id="ImageService" class="com.jszt.service.common.impl.ImageServiceSpi"></bean>
+</beans>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Adapetr构建-->
+<project basedir="." default="FAManager-build" name="FAManager-Build">
+    <import file="compile.xml" /> 
+    
+	<!-- 路径声明  -->
+    <property name="FAManager.jar" value="jszt-FAManager.jar" />
+    <property name="FAManager.jar.path" value="../library/memlib" />
+    
+	<!-- 构建   -->
+    <target name="FAManager-build" depends="FAManager-compile" >
+        <delete file="${FAManager.jar.path}/${FAManager.jar}" failonerror="false" />
+        <jar jarfile="${FAManager.jar.path}/${FAManager.jar}" basedir="${classes.path}" />
+        
+    	<delete dir="${classes.path}" failonerror="false" /> 
+    </target>
+</project>

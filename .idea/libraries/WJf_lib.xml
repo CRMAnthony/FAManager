@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="WJf-lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/wj-lib/WJf-lib/jszt-sms.jar!/" />
+      <root url="jar://$PROJECT_DIR$/wj-lib/WJf-lib/jszt-wcf.jar!/" />
+      <root url="jar://$PROJECT_DIR$/wj-lib/WJf-lib/jszt-boulevard.jar!/" />
+      <root url="jar://$PROJECT_DIR$/wj-lib/WJf-lib/axis2-1.4.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/wj-lib/WJf-lib/jszt-adapter.jar!/" />
+      <root url="jar://$PROJECT_DIR$/wj-lib/WJf-lib/jszt-commons.jar!/" />
+      <root url="jar://$PROJECT_DIR$/wj-lib/WJf-lib/jszt-famanager.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
